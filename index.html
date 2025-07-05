@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiba Alsaydeah - Marketing Professional</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="logo-loader">
+                <span class="loader-text">Hiba Alsaydeah</span>
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-percentage">0%</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/logo.png" alt="Hiba Alsaydeah Logo" class="logo-image">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#portfolio" class="nav-link">Experience</a></li>
+                <li><a href="#work" class="nav-link">Work</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <canvas id="hero-canvas"></canvas>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Turning</span>
+                    <span class="title-line">Ideas Into</span>
+                    <span class="title-line highlight">Impact</span>
+                </h1>
+                <p class="hero-subtitle">E-Commerce & Business Administration • Digital Marketing Specialist • Creative Professional</p>
+                <div class="hero-name">
+                    <span class="name-text">Hiba Alsaydeah</span>
+                    <div class="name-underline"></div>
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <div class="scroll-indicator">
+                    <span>Scroll to explore</span>
+                    <div class="scroll-line"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-particles"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-bg">
+            <div class="floating-shapes"></div>
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-subtitle">The Story Behind the Vision</div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-card">
+                        <div class="card-number">01</div>
+                        <h3>The Strategist</h3>
+                        <p>A highly motivated E-Commerce and Business Administration student with strong skills in digital marketing, programming, and graphic design. I bring analytical thinking to creative challenges.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-number">02</div>
+                        <h3>The Communicator</h3>
+                        <p>Fluent in English with high emotional intelligence and excellent diplomacy. Winner at the National Level – Palestinian Universities Debate Competition, recognized for exceptional persuasion skills.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-number">03</div>
+                        <h3>The Professional</h3>
+                        <p>Experienced in social media management, project coordination, and team collaboration. Strong aptitude for business management and continuous learning drives my success.</p>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="visual-container">
+                        <div class="profile-image">
+                            <svg class="profile-svg" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Definitions -->
+                                <defs>
+                                    <pattern id="aboutPattern" x="0" y="0" width="100%" height="100%" patternUnits="userSpaceOnUse">
+                                        <image href="assets/about card.png" x="0" y="0" width="300" height="400" preserveAspectRatio="xMidYMid slice"/>
+                                    </pattern>
+                                    <linearGradient id="profileGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:0.1" />
+                                        <stop offset="100%" style="stop-color:#c44569;stop-opacity:0.1" />
+                                    </linearGradient>
+                                </defs>
+                                
+                                <!-- Main card background with image -->
+                                <rect x="0" y="0" width="300" height="400" rx="20" fill="url(#aboutPattern)"/>
+                                
+                                <!-- Very light overlay gradient -->
+                                <rect x="0" y="0" width="300" height="400" rx="20" fill="url(#profileGradient)"/>
+                            </svg>
+                            <div class="image-overlay"></div>
+                            <div class="image-frame"></div>
+                        </div>
+                        <div class="floating-elements">
+                            <div class="element element-1"></div>
+                            <div class="element element-2"></div>
+                            <div class="element element-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="section-subtitle">Building Skills Through Real-World Impact</div>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Experience 1 -->
+                <div class="portfolio-item" data-category="banking" onclick="window.open('assets/bank of palestine on click.png', '_blank')" style="cursor: pointer;">
+                    <div class="project-image">
+                        <img src="assets/bank of palestine.png" alt="Bank of Palestine" class="project-bg-image">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <div class="project-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <h3>Bank of Palestine</h3>
+                                <p>Marketing Training Program</p>
+                                <div class="project-tags">
+                                    <span>Marketing</span>
+                                    <span>Events</span>
+                                    <span>Banking</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-number">01</div>
+                        <div class="project-icon-small">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h4>Bank of Palestine Training</h4>
+                        <p>Completed comprehensive training program and actively participated in marketing events, gaining valuable industry experience in banking sector marketing.</p>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="portfolio-item" data-category="digital">
+                    <div class="project-image">
+                        <img src="assets/social media management.png" alt="Social Media Management" class="project-bg-image">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <div class="project-icon">
+                                    <i class="fas fa-hashtag"></i>
+                                </div>
+                                <h3>Social Media Manager</h3>
+                                <p>Freelance Digital Marketing</p>
+                                <div class="project-tags">
+                                    <span>Social Media</span>
+                                    <span>Project Management</span>
+                                    <span>Client Relations</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-number">02</div>
+                        <div class="project-icon-small">
+                            <i class="fas fa-hashtag"></i>
+                        </div>
+                        <h4>Social Media Management</h4>
+                        <p>Enhanced social media engagement by 10% and optimized audience interaction. Managed project timelines effectively, reducing delivery times by 30%.</p>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="portfolio-item" data-category="education">
+                    <div class="project-image">
+                        <img src="assets/english teaching.png" alt="English Teaching" class="project-bg-image">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <div class="project-icon">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                                <h3>English Teacher</h3>
+                                <p>Rowad Al-Ghad Institute</p>
+                                <div class="project-tags">
+                                    <span>Education</span>
+                                    <span>Communication</span>
+                                    <span>Leadership</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-number">03</div>
+                        <div class="project-icon-small">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h4>English Teaching Excellence</h4>
+                        <p>Developed innovative support systems for students to boost confidence and improve grades. Successfully maintained full class attendance through engaging teaching strategies.</p>
+                    </div>
+                </div>
+
+                <!-- Experience 4 -->
+                <div class="portfolio-item" data-category="development" onclick="window.open('assets/dental on click.pdf', '_blank')" style="cursor: pointer;">
+                    <div class="project-image">
+                        <svg class="project-bg-image" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="educationGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#c44569;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            
+                            <!-- Pink Background -->
+                            <rect width="400" height="300" fill="url(#educationGradient)"/>
+                            
+                            <!-- Graduation Cap -->
+                            <g transform="translate(200, 80)">
+                                <!-- Cap base -->
+                                <ellipse cx="0" cy="25" rx="45" ry="8" fill="rgba(255,255,255,0.9)"/>
+                                <!-- Cap top -->
+                                <rect x="-30" y="10" width="60" height="15" rx="3" fill="rgba(255,255,255,0.9)"/>
+                                <!-- Tassel -->
+                                <line x1="25" y1="15" x2="35" y2="5" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+                                <circle cx="35" cy="5" r="3" fill="rgba(255,255,255,0.8)"/>
+                            </g>
+                            
+                            <!-- Open Book -->
+                            <g transform="translate(120, 180)">
+                                <!-- Book pages -->
+                                <path d="M 0 20 Q 15 15 30 20 L 30 50 Q 15 45 0 50 Z" fill="rgba(255,255,255,0.9)"/>
+                                <path d="M 30 20 Q 45 15 60 20 L 60 50 Q 45 45 30 50 Z" fill="rgba(255,255,255,0.8)"/>
+                                <!-- Book spine -->
+                                <line x1="30" y1="20" x2="30" y2="50" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+                                <!-- Text lines -->
+                                <line x1="8" y1="30" x2="22" y2="28" stroke="rgba(196,69,105,0.6)" stroke-width="1"/>
+                                <line x1="8" y1="35" x2="22" y2="33" stroke="rgba(196,69,105,0.6)" stroke-width="1"/>
+                                <line x1="38" y1="28" x2="52" y2="30" stroke="rgba(196,69,105,0.6)" stroke-width="1"/>
+                                <line x1="38" y1="33" x2="52" y2="35" stroke="rgba(196,69,105,0.6)" stroke-width="1"/>
+                            </g>
+                            
+                            <!-- Certificate/Diploma -->
+                            <g transform="translate(280, 160)">
+                                <!-- Certificate -->
+                                <rect x="0" y="0" width="80" height="60" rx="5" fill="rgba(255,255,255,0.9)" stroke="rgba(255,255,255,1)" stroke-width="2"/>
+                                <!-- Ribbon -->
+                                <circle cx="70" cy="10" r="8" fill="rgba(224,86,253,0.8)"/>
+                                <path d="M 70 18 L 65 25 L 70 22 L 75 25 Z" fill="rgba(224,86,253,0.8)"/>
+                                <!-- Certificate lines -->
+                                <line x1="10" y1="20" x2="60" y2="20" stroke="rgba(196,69,105,0.6)" stroke-width="2"/>
+                                <line x1="10" y1="30" x2="50" y2="30" stroke="rgba(196,69,105,0.4)" stroke-width="1"/>
+                                <line x1="10" y1="35" x2="45" y2="35" stroke="rgba(196,69,105,0.4)" stroke-width="1"/>
+                                <line x1="10" y1="45" x2="35" y2="45" stroke="rgba(196,69,105,0.4)" stroke-width="1"/>
+                            </g>
+                            
+                            <!-- Knowledge Stars -->
+                            <g fill="rgba(255,255,255,0.7)">
+                                <polygon points="60,60 62,66 68,66 63,70 65,76 60,72 55,76 57,70 52,66 58,66" />
+                                <polygon points="340,50 342,56 348,56 343,60 345,66 340,62 335,66 337,60 332,56 338,56" />
+                                <polygon points="80,120 82,126 88,126 83,130 85,136 80,132 75,136 77,130 72,126 78,126" />
+                                <polygon points="320,120 322,126 328,126 323,130 325,136 320,132 315,136 317,130 312,126 318,126" />
+                            </g>
+                        </svg>
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <div class="project-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3>Career Preparation Courses</h3>
+                                <p>University Training Program</p>
+                                <div class="project-tags">
+                                    <span>Career Ready</span>
+                                    <span>Digital Skills</span>
+                                    <span>Professional Growth</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-number">04</div>
+                        <div class="project-icon-small">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Career Foundation Program</h4>
+                        <p>Completed essential workplace preparation courses: Internet Safety, Introduction to Gen AI, Self-Control Development, and Self-Confidence Enhancement. Building core competencies for professional success.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="work">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My Work</h2>
+                <div class="section-subtitle">Projects & Documents</div>
+            </div>
+            <div class="work-grid">
+                <!-- Document 1 -->
+                <div class="work-item" onclick="window.open('assets/my work/CleanSwift Marketing Plan.pptx', '_blank')" style="cursor: pointer;">
+                    <div class="work-image">
+                        <img src="assets/my work/CleanSwift Marketing Plan.png" alt="CleanSwift Marketing Plan" class="work-bg-image">
+                    </div>
+                    <div class="document-container">
+                        <div class="document-content">
+                            <h3>CleanSwift Marketing Plan</h3>
+                            <p>Comprehensive PowerPoint presentation showcasing marketing strategy and business planning</p>
+                            <div class="document-action">
+                                <span>Click to Download</span>
+                                <i class="fas fa-download"></i>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            
+                <!-- Document 2 -->
+                <div class="work-item" onclick="window.open('assets/my work/Laundry App Marketing Plan.pdf', '_blank')" style="cursor: pointer;">
+                    <div class="work-image">
+                        <img src="assets/my work/laundry app.png" alt="Laundry App Marketing Plan" class="work-bg-image">
+                    </div>
+                    <div class="document-container">
+                    <div class="document-content">
+                        <h3>Laundry App Marketing Plan</h3>
+                            <p>Detailed marketing strategy and business plan for mobile laundry application</p>
+                            <div class="document-action">
+                                <span>Click to View</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document 3 -->
+                <div class="work-item" onclick="window.open('assets/my work/logo guidelines.pdf', '_blank')" style="cursor: pointer;">
+                    <div class="work-image">
+                        <img src="assets/logo.png" alt="Logo Guidelines" class="work-bg-image">
+                    </div>
+                    <div class="document-container">
+                        <div class="document-content">
+                            <h3>Logo Guidelines</h3>
+                            <p>Brand identity guidelines and logo usage specifications for consistent branding</p>
+                            <div class="document-action">
+                                <span>Click to View</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document 4 -->
+                <div class="work-item" onclick="window.open('assets/my work/marketing research methodology.pdf', '_blank')" style="cursor: pointer;">
+                    <div class="work-image">
+                        <img src="assets/my work/marketing methodology.png" alt="Marketing Research Methodology" class="work-bg-image">
+                    </div>
+                    <div class="document-container">
+                        <div class="document-content">
+                            <h3>Marketing Research Methodology</h3>
+                            <p>Research framework and methodology for comprehensive market analysis</p>
+                            <div class="document-action">
+                                <span>Click to View</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document 5 -->
+                <div class="work-item" onclick="window.open('https://app.presentations.ai/view/Q5ysg6', '_blank')" style="cursor: pointer;">
+                    <div class="work-image">
+                        <svg class="work-bg-image leadership-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Mountain -->
+                            <polygon points="50,250 200,100 350,250" fill="url(#mountainGradient)" stroke="rgba(255,107,157,0.3)" stroke-width="2"/>
+                            
+                            <!-- Leader on summit -->
+                            <g transform="translate(200, 120)">
+                                <!-- Body -->
+                                <ellipse cx="0" cy="35" rx="25" ry="30" fill="url(#leaderGradient)"/>
+                                <!-- Head -->
+                                <circle cx="0" cy="0" r="18" fill="url(#leaderGradient)"/>
+                                <!-- Arms -->
+                                <ellipse cx="-30" cy="20" rx="8" ry="20" fill="url(#leaderGradient)" transform="rotate(-30 -30 20)"/>
+                                <ellipse cx="30" cy="20" rx="8" ry="20" fill="url(#leaderGradient)" transform="rotate(30 30 20)"/>
+                            </g>
+                            
+                            <!-- Flag pole -->
+                            <line x1="200" y1="102" x2="200" y2="60" stroke="#ff6b9d" stroke-width="4"/>
+                            
+                            <!-- Victory flag -->
+                            <polygon points="204,65 260,75 204,85" fill="url(#flagGradient)" stroke="#ff6b9d" stroke-width="1"/>
+                            
+                            <!-- Success stars -->
+                            <g fill="#e056fd" opacity="0.8">
+                                <polygon points="150,80 152,86 158,86 153,90 155,96 150,92 145,96 147,90 142,86 148,86" />
+                                <polygon points="250,90 252,96 258,96 253,100 255,106 250,102 245,106 247,100 242,96 248,96" />
+                                <polygon points="180,70 182,76 188,76 183,80 185,86 180,82 175,86 177,80 172,76 178,76" />
+                            </g>
+                            
+                            <!-- Team at base -->
+                            <g transform="translate(120, 230)">
+                                <circle cx="0" cy="0" r="12" fill="rgba(255,107,157,0.7)"/>
+                                <ellipse cx="0" cy="18" rx="15" ry="20" fill="rgba(255,107,157,0.7)"/>
+                            </g>
+                            <g transform="translate(160, 240)">
+                                <circle cx="0" cy="0" r="12" fill="rgba(224,86,253,0.7)"/>
+                                <ellipse cx="0" cy="18" rx="15" ry="20" fill="rgba(224,86,253,0.7)"/>
+                            </g>
+                            <g transform="translate(240, 240)">
+                                <circle cx="0" cy="0" r="12" fill="rgba(255,107,157,0.7)"/>
+                                <ellipse cx="0" cy="18" rx="15" ry="20" fill="rgba(255,107,157,0.7)"/>
+                            </g>
+                            <g transform="translate(280, 230)">
+                                <circle cx="0" cy="0" r="12" fill="rgba(224,86,253,0.7)"/>
+                                <ellipse cx="0" cy="18" rx="15" ry="20" fill="rgba(224,86,253,0.7)"/>
+                            </g>
+                            
+                            <!-- Leadership path -->
+                            <path d="M 100,240 Q 150,180 200,120" stroke="rgba(255,107,157,0.5)" stroke-width="3" fill="none" stroke-dasharray="8,4"/>
+                            
+                            <!-- Definitions -->
+                            <defs>
+                                <linearGradient id="mountainGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+                                    <stop offset="0%" style="stop-color:rgba(255,107,157,0.3);stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:rgba(224,86,253,0.3);stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="leaderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#e056fd;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="flagGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:0.9" />
+                                    <stop offset="100%" style="stop-color:#e056fd;stop-opacity:0.9" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="document-container">
+                        <div class="document-content">
+                            <h3>Volunteer at Work Leadership Competition</h3>
+                            <p>Presentation showcasing leadership skills and volunteer experience in professional competition</p>
+                        <div class="document-action">
+                                <span>Click to View</span>
+                            <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document 6 -->
+                <div class="work-item" onclick="openCarousel()" style="cursor: pointer;">
+                    <div class="work-image">
+                        <svg class="work-bg-image" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Design canvas -->
+                            <rect x="50" y="50" width="300" height="200" rx="15" fill="url(#canvasGradient)" stroke="#ff6b9d" stroke-width="2"/>
+                            
+                            <!-- Palette -->
+                            <circle cx="100" cy="100" r="15" fill="#ff6b9d"/>
+                            <circle cx="130" cy="100" r="15" fill="#e056fd"/>
+                            <circle cx="160" cy="100" r="15" fill="#9b59b6"/>
+                            
+                            <!-- Pen/Brush -->
+                            <g transform="translate(250, 150)">
+                                <ellipse cx="0" cy="0" rx="3" ry="25" fill="url(#penGradient)" transform="rotate(45)"/>
+                                <circle cx="-15" cy="-15" r="5" fill="#ff6b9d"/>
+                            </g>
+                            
+                            <!-- Creative elements -->
+                            <polygon points="120,180 140,160 160,180 150,200 130,200" fill="rgba(255,107,157,0.7)"/>
+                            <circle cx="200" cy="120" r="20" fill="rgba(224,86,253,0.5)" stroke="#e056fd" stroke-width="2"/>
+                            <rect x="280" y="180" width="40" height="40" fill="rgba(255,107,157,0.6)" transform="rotate(45 300 200)"/>
+                            
+                            <!-- Sparkles -->
+                            <g fill="#e056fd" opacity="0.8">
+                                <polygon points="80,180 82,186 88,186 83,190 85,196 80,192 75,196 77,190 72,186 78,186" />
+                                <polygon points="320,120 322,126 328,126 323,130 325,136 320,132 315,136 317,130 312,126 318,126" />
+                                <polygon points="180,80 182,86 188,86 183,90 185,96 180,92 175,96 177,90 172,86 178,86" />
+                            </g>
+                            
+                            <defs>
+                                <linearGradient id="canvasGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:rgba(255,107,157,0.1);stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="penGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#e056fd;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="document-container">
+                        <div class="document-content">
+                            <h3>Graphic Design</h3>
+                            <p>Creative design portfolio showcasing visual identity, branding, and digital artwork</p>
+                            <div class="document-action">
+                                <span>Click to View Gallery</span>
+                                <i class="fas fa-images"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel Modal -->
+    <div id="carouselModal" class="carousel-modal">
+        <div class="carousel-container">
+            <span class="carousel-close" onclick="closeCarousel()">&times;</span>
+            <div class="carousel-content">
+                <div class="carousel-slide active">
+                    <img id="carouselImage" src="" alt="Graphic Design Work">
+                </div>
+            </div>
+            <button class="carousel-nav prev" onclick="prevSlide()">&#10094;</button>
+            <button class="carousel-nav next" onclick="nextSlide()">&#10095;</button>
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Tools</h2>
+                <div class="section-subtitle">My Creative Arsenal</div>
+            </div>
+            <div class="skills-content">
+                <div class="skills-categories">
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h3>E-Commerce</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span>Online Store Management</span>
+                                <div class="skill-level" data-level="90"></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>SEO Optimization</span>
+                                <div class="skill-level" data-level="85"></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Data Analysis</span>
+                                <div class="skill-level" data-level="80"></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Digital Marketing</span>
+                                <div class="skill-level" data-level="88"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Business</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span>Project Management</span>
+                                <div class="skill-level" data-level="92"></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Strategic Planning</span>
+                                <div class="skill-level" data-level="85"></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Market Analysis</span>
+                                <div class="skill-level" data-level="87"></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Business Management</span>
+                                <div class="skill-level" data-level="84"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Technical</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span>Java Programming</span>
+                                <div class="skill-level" data-level="85"></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>JavaScript & CSS</span>
+                                <div class="skill-level" data-level="80"></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Python & SQL</span>
+                                <div class="skill-level" data-level="75"></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Graphic Design</span>
+                                <div class="skill-level" data-level="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tools-section">
+                    <h3>Tools I Master</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <div class="tool-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <span>Canva</span>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <span>Adobe Photoshop</span>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-icon">
+                                <i class="fas fa-vector-square"></i>
+                            </div>
+                            <span>Adobe Illustrator</span>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <span>AI Tools</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-text">
+                    <h2 class="section-title">Let's Create Something Amazing</h2>
+                    <p class="contact-subtitle">Ready to transform your brand? Let's collaborate and make magic happen.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <span>Email</span>
+                                <a href="mailto:hibanmers@gmail.com">hibanmers@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <span>Phone</span>
+                                <a href="tel:+972598349117">+972 59 834 9117</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <span>Location</span>
+                                <span>Tulkarm Iskan Shuweika</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form" action="https://formspree.io/f/mldnkdgp" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Send Message</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Hiba Alsaydeah.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#portfolio">Experience</a>
+                    <a href="#work">Work</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
