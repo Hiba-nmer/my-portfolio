@@ -11,10 +11,148 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background: #0a0a0a;
+    background: #020617;
     color: #ffffff;
     overflow-x: hidden;
     line-height: 1.6;
+}
+
+/* Space Background Styles */
+.space-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+    z-index: -2;
+    overflow: hidden;
+}
+
+#stars-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle var(--duration) infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: var(--opacity); transform: scale(1.2); }
+}
+
+#meteors-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.meteor {
+    position: absolute;
+    width: 1px;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
+    opacity: 0;
+    transform: rotate(-45deg);
+    pointer-events: none;
+    animation: meteor-fall var(--duration) linear forwards;
+}
+
+@keyframes meteor-fall {
+    0% {
+        transform: translate(var(--start-x), var(--start-y)) rotate(-45deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(var(--end-x), var(--end-y)) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+.nebula {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.1;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.nebula-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #7928ca, transparent);
+    top: -200px;
+    left: -200px;
+}
+
+.nebula-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #ff0080, transparent);
+    bottom: -150px;
+    right: -150px;
+}
+
+#shapes-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.floating-shape {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(2px);
+    animation: float-shape var(--duration) infinite linear;
+}
+
+.shape-square {
+    border-radius: 4px;
+}
+
+.shape-circle {
+    border-radius: 50%;
+}
+
+.shape-triangle {
+    width: 0 !important;
+    height: 0 !important;
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-bottom: var(--size-double) solid rgba(255, 255, 255, 0.05);
+    background: none;
+    backdrop-filter: none;
+    border-top: none;
+}
+
+@keyframes float-shape {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--move-x), var(--move-y)) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 .container {
@@ -347,7 +485,7 @@ body {
 .about {
     padding: 120px 0;
     position: relative;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+    background: transparent;
 }
 
 .section-bg {
@@ -588,7 +726,7 @@ body {
 /* Portfolio Section */
 .portfolio {
     padding: 120px 0;
-    background: linear-gradient(135deg, #0b0f14 0%, #1a1f2e 50%, #0f1419 100%);
+    background: transparent;
     position: relative;
     overflow: hidden;
 }
@@ -683,7 +821,8 @@ body {
 
 .portfolio-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 30px 60px rgba(121, 40, 202, 0.2);
+    border-color: rgba(121, 40, 202, 0.4);
 }
 
 .project-image {
@@ -915,7 +1054,7 @@ body {
 /* Work Section */
 .work {
     padding: 120px 0;
-    background: #0a0a0a;
+    background: transparent;
     position: relative;
     overflow: hidden;
 }
@@ -1193,7 +1332,7 @@ body {
 /* Skills Section */
 .skills {
     padding: 120px 0;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    background: transparent;
     position: relative;
     overflow: hidden;
 }
@@ -1351,7 +1490,7 @@ body {
 /* Contact Section */
 .contact {
     padding: 120px 0;
-    background: #0a0a0a;
+    background: transparent;
     position: relative;
     overflow: hidden;
 }
@@ -1546,7 +1685,7 @@ body {
 
 /* Footer */
 .footer {
-    background: #0a0a0a;
+    background: transparent;
     padding: 40px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
