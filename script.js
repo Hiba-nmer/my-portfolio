@@ -19,25 +19,39 @@ document.addEventListener('DOMContentLoaded', function() {
     initCursorEffects();
     initSpaceBackground();
     initFloatingShapes();
+
+    // Global event listeners
+    window.addEventListener('resize', onWindowResize);
+    document.addEventListener('mousemove', onDocumentMouseMove);
 });
+
+function onWindowResize() {
+    windowHalfX = window.innerWidth / 2;
+    windowHalfY = window.innerHeight / 2;
+}
+
+function onDocumentMouseMove(event) {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+}
 
 // Space Background Logic
 function initSpaceBackground() {
     const starsContainer = document.getElementById('stars-container');
     const meteorsContainer = document.getElementById('meteors-container');
-    const starCount = 150;
+    const starCount = 200;
 
     // Create Stars
     for (let i = 0; i < starCount; i++) {
         const star = document.createElement('div');
         star.className = 'star';
 
-        const size = Math.random() * 2 + 1;
+        const size = Math.random() * 2.5 + 0.5;
         const x = Math.random() * 100;
         const y = Math.random() * 100;
-        const duration = Math.random() * 3 + 2;
-        const opacity = Math.random() * 0.7 + 0.3;
-        const delay = Math.random() * 5;
+        const duration = Math.random() * 4 + 1;
+        const opacity = Math.random() * 0.8 + 0.2;
+        const delay = Math.random() * 10;
 
         star.style.width = `${size}px`;
         star.style.height = `${size}px`;
@@ -96,13 +110,13 @@ function createMeteor(container) {
     meteor.className = 'meteor';
 
     const startX = Math.random() * 100;
-    const startY = Math.random() * 30;
-    const duration = Math.random() * 2 + 2;
+    const startY = Math.random() * 20;
+    const duration = Math.random() * 1 + 1;
 
     meteor.style.setProperty('--start-x', `${startX}vw`);
     meteor.style.setProperty('--start-y', `${startY}vh`);
-    meteor.style.setProperty('--end-x', `${startX - 20}vw`);
-    meteor.style.setProperty('--end-y', `${startY + 50}vh`);
+    meteor.style.setProperty('--end-x', `${startX - 30}vw`);
+    meteor.style.setProperty('--end-y', `${startY + 60}vh`);
     meteor.style.setProperty('--duration', `${duration}s`);
 
     container.appendChild(meteor);
@@ -592,13 +606,7 @@ function initCursorEffects() {
     
     document.body.appendChild(cursor);
     
-    let mouseX = 0, mouseY = 0;
     let cursorX = 0, cursorY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
     
     function updateCursor() {
         cursorX += (mouseX - cursorX) * 0.1;
