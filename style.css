@@ -11,10 +11,149 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background: #0a0a0a;
+    background: #030712;
     color: #ffffff;
     overflow-x: hidden;
     line-height: 1.6;
+}
+
+/* Space Background Styles */
+.space-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #0b1120 0%, #030712 100%);
+    z-index: -1;
+    overflow: hidden;
+}
+
+#stars-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle var(--duration) infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: var(--opacity); transform: scale(1.2); }
+}
+
+#meteors-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.meteor {
+    position: absolute;
+    width: 2px;
+    height: 150px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    opacity: 0;
+    transform: rotate(-45deg);
+    pointer-events: none;
+    filter: drop-shadow(0 0 5px #fff);
+    animation: meteor-fall var(--duration) linear forwards;
+}
+
+@keyframes meteor-fall {
+    0% {
+        transform: translate(var(--start-x), var(--start-y)) rotate(-45deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(var(--end-x), var(--end-y)) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+.nebula {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.1;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.nebula-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #7928ca, transparent);
+    top: -200px;
+    left: -200px;
+}
+
+.nebula-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #ff0080, transparent);
+    bottom: -150px;
+    right: -150px;
+}
+
+#shapes-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.floating-shape {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(2px);
+    animation: float-shape var(--duration) infinite linear;
+}
+
+.shape-square {
+    border-radius: 4px;
+}
+
+.shape-circle {
+    border-radius: 50%;
+}
+
+.shape-triangle {
+    width: 0 !important;
+    height: 0 !important;
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-bottom: var(--size-double) solid rgba(255, 255, 255, 0.05);
+    background: none;
+    backdrop-filter: none;
+    border-top: none;
+}
+
+@keyframes float-shape {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--move-x), var(--move-y)) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 .container {
@@ -347,7 +486,7 @@ body {
 .about {
     padding: 120px 0;
     position: relative;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+    background: transparent;
 }
 
 .section-bg {
@@ -431,7 +570,7 @@ body {
 
 .about-card {
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     border-radius: 20px;
     padding: 30px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -442,7 +581,8 @@ body {
 
 .about-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(121, 40, 202, 0.2);
+    border-color: rgba(121, 40, 202, 0.4);
 }
 
 .about-card::before {
@@ -588,53 +728,9 @@ body {
 /* Portfolio Section */
 .portfolio {
     padding: 120px 0;
-    background: linear-gradient(135deg, #0b0f14 0%, #1a1f2e 50%, #0f1419 100%);
+    background: transparent;
     position: relative;
     overflow: hidden;
-}
-
-.portfolio::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 70% 80%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
-        radial-gradient(1px 1px at 10% 20%, rgba(59, 130, 246, 0.4), transparent),
-        radial-gradient(2px 2px at 80% 80%, rgba(99, 102, 241, 0.3), transparent),
-        radial-gradient(1px 1px at 70% 30%, rgba(139, 69, 199, 0.4), transparent),
-        radial-gradient(3px 3px at 20% 60%, rgba(59, 130, 246, 0.2), transparent),
-        radial-gradient(1px 1px at 90% 10%, rgba(99, 102, 241, 0.5), transparent),
-        radial-gradient(2px 2px at 40% 90%, rgba(139, 69, 199, 0.3), transparent),
-        radial-gradient(1px 1px at 60% 70%, rgba(59, 130, 246, 0.3), transparent),
-        radial-gradient(2px 2px at 30% 40%, rgba(99, 102, 241, 0.2), transparent);
-    background-size: 500px 500px, 600px 600px, 120px 120px, 180px 180px, 150px 150px, 200px 200px, 100px 100px, 160px 160px, 140px 140px, 170px 170px;
-    animation: portfolioParticles 30s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.portfolio::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(1px 1px at 15% 80%, rgba(59, 130, 246, 0.3), transparent),
-        radial-gradient(2px 2px at 85% 40%, rgba(99, 102, 241, 0.4), transparent),
-        radial-gradient(1px 1px at 50% 10%, rgba(139, 69, 199, 0.3), transparent),
-        radial-gradient(3px 3px at 25% 70%, rgba(59, 130, 246, 0.2), transparent),
-        radial-gradient(1px 1px at 75% 60%, rgba(99, 102, 241, 0.4), transparent),
-        radial-gradient(2px 2px at 45% 25%, rgba(139, 69, 199, 0.3), transparent);
-    background-size: 130px 130px, 190px 190px, 110px 110px, 210px 210px, 160px 160px, 140px 140px;
-    animation: portfolioParticles 40s ease-in-out infinite reverse;
-    pointer-events: none;
-    z-index: 1;
 }
 
 @keyframes portfolioParticles {
@@ -674,6 +770,7 @@ body {
 
 .portfolio-item {
     background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
     border-radius: 20px;
     overflow: hidden;
     position: relative;
@@ -683,7 +780,8 @@ body {
 
 .portfolio-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 40px rgba(121, 40, 202, 0.3);
+    border-color: rgba(121, 40, 202, 0.5);
 }
 
 .project-image {
@@ -915,51 +1013,9 @@ body {
 /* Work Section */
 .work {
     padding: 120px 0;
-    background: #0a0a0a;
+    background: transparent;
     position: relative;
     overflow: hidden;
-}
-
-.work::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(2px 2px at 20% 30%, rgba(255, 107, 157, 0.3), transparent),
-        radial-gradient(2px 2px at 40% 70%, rgba(224, 86, 253, 0.3), transparent),
-        radial-gradient(1px 1px at 90% 40%, rgba(255, 107, 157, 0.4), transparent),
-        radial-gradient(1px 1px at 50% 50%, rgba(224, 86, 253, 0.2), transparent),
-        radial-gradient(2px 2px at 10% 90%, rgba(255, 107, 157, 0.3), transparent),
-        radial-gradient(1px 1px at 80% 10%, rgba(224, 86, 253, 0.4), transparent),
-        radial-gradient(1px 1px at 60% 80%, rgba(255, 107, 157, 0.2), transparent),
-        radial-gradient(2px 2px at 30% 20%, rgba(224, 86, 253, 0.3), transparent);
-    background-size: 200px 200px, 300px 300px, 150px 150px, 250px 250px, 180px 180px, 120px 120px, 220px 220px, 160px 160px;
-    animation: workParticles 20s linear infinite;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.work::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(1px 1px at 25% 60%, rgba(255, 107, 157, 0.2), transparent),
-        radial-gradient(2px 2px at 75% 25%, rgba(224, 86, 253, 0.3), transparent),
-        radial-gradient(1px 1px at 15% 15%, rgba(255, 107, 157, 0.4), transparent),
-        radial-gradient(1px 1px at 85% 85%, rgba(224, 86, 253, 0.2), transparent),
-        radial-gradient(2px 2px at 55% 45%, rgba(255, 107, 157, 0.3), transparent),
-        radial-gradient(1px 1px at 35% 75%, rgba(224, 86, 253, 0.4), transparent);
-    background-size: 180px 180px, 240px 240px, 160px 160px, 200px 200px, 220px 220px, 140px 140px;
-    animation: workParticles 25s linear infinite reverse;
-    pointer-events: none;
-    z-index: 1;
 }
 
 @keyframes workParticles {
@@ -994,6 +1050,7 @@ body {
 
 .work-item {
     background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
     border-radius: 20px;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -1002,8 +1059,8 @@ body {
 
 .work-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(255, 107, 157, 0.4), 0 0 40px rgba(255, 107, 157, 0.2);
-    border-color: rgba(255, 107, 157, 0.3);
+    box-shadow: 0 20px 40px rgba(121, 40, 202, 0.3);
+    border-color: rgba(121, 40, 202, 0.5);
 }
 
 .work-item .document-container {
@@ -1193,22 +1250,9 @@ body {
 /* Skills Section */
 .skills {
     padding: 120px 0;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    background: transparent;
     position: relative;
     overflow: hidden;
-}
-
-.skills::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('assets/skills section.png') center/cover no-repeat;
-    filter: blur(8px);
-    opacity: 0.3;
-    z-index: 1;
 }
 
 .skills .container {
@@ -1229,7 +1273,7 @@ body {
 
 .skill-category {
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     border-radius: 20px;
     padding: 40px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1238,7 +1282,8 @@ body {
 
 .skill-category:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(121, 40, 202, 0.2);
+    border-color: rgba(121, 40, 202, 0.4);
 }
 
 .category-header {
@@ -1351,22 +1396,9 @@ body {
 /* Contact Section */
 .contact {
     padding: 120px 0;
-    background: #0a0a0a;
+    background: transparent;
     position: relative;
     overflow: hidden;
-}
-
-.contact::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('assets/contact section.png') center/cover no-repeat;
-    filter: blur(8px);
-    opacity: 0.3;
-    z-index: 1;
 }
 
 .contact .container {
@@ -1467,7 +1499,7 @@ body {
 
 .contact-form {
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     border-radius: 20px;
     padding: 40px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1546,7 +1578,7 @@ body {
 
 /* Footer */
 .footer {
-    background: #0a0a0a;
+    background: transparent;
     padding: 40px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }

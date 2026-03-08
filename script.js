@@ -2,7 +2,7 @@
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, TextPlugin);
 
 // Global variables
-let scene, camera, renderer, particles, mouse, mouseX = 0, mouseY = 0;
+let mouseX = 0, mouseY = 0;
 let heroParticles = [];
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
@@ -10,7 +10,6 @@ let windowHalfY = window.innerHeight / 2;
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initPreloader();
-    initThreeJS();
     initAnimations();
     initNavigation();
     initScrollEffects();
@@ -18,7 +17,115 @@ document.addEventListener('DOMContentLoaded', function() {
     initSkillBars();
     initContactForm();
     initCursorEffects();
+    initSpaceBackground();
+    initFloatingShapes();
+
+    // Global event listeners
+    window.addEventListener('resize', onWindowResize);
+    document.addEventListener('mousemove', onDocumentMouseMove);
 });
+
+function onWindowResize() {
+    windowHalfX = window.innerWidth / 2;
+    windowHalfY = window.innerHeight / 2;
+}
+
+function onDocumentMouseMove(event) {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+}
+
+// Space Background Logic
+function initSpaceBackground() {
+    const starsContainer = document.getElementById('stars-container');
+    const meteorsContainer = document.getElementById('meteors-container');
+    const starCount = 200;
+
+    // Create Stars
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+
+        const size = Math.random() * 2.5 + 0.5;
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const duration = Math.random() * 4 + 1;
+        const opacity = Math.random() * 0.8 + 0.2;
+        const delay = Math.random() * 10;
+
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${x}%`;
+        star.style.top = `${y}%`;
+        star.style.setProperty('--duration', `${duration}s`);
+        star.style.setProperty('--opacity', opacity);
+        star.style.animationDelay = `${delay}s`;
+
+        starsContainer.appendChild(star);
+    }
+
+    // Create Meteors
+    setInterval(() => {
+        if (document.querySelectorAll('.meteor').length < 5) {
+            createMeteor(meteorsContainer);
+        }
+    }, 2000);
+}
+
+function initFloatingShapes() {
+    const container = document.getElementById('shapes-container');
+    const shapeCount = 15;
+    const shapes = ['square', 'circle', 'triangle'];
+
+    for (let i = 0; i < shapeCount; i++) {
+        const shape = document.createElement('div');
+        const type = shapes[Math.floor(Math.random() * shapes.length)];
+        shape.className = `floating-shape shape-${type}`;
+
+        const size = Math.random() * 30 + 10;
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const duration = Math.random() * 20 + 20;
+        const delay = Math.random() * -40;
+        const moveX = (Math.random() - 0.5) * 200;
+        const moveY = (Math.random() - 0.5) * 200;
+
+        shape.style.width = `${size}px`;
+        shape.style.height = `${size}px`;
+        shape.style.left = `${x}%`;
+        shape.style.top = `${y}%`;
+        shape.style.setProperty('--size', `${size / 2}px`);
+        shape.style.setProperty('--size-double', `${size}px`);
+        shape.style.setProperty('--duration', `${duration}s`);
+        shape.style.setProperty('--move-x', `${moveX}px`);
+        shape.style.setProperty('--move-y', `${moveY}px`);
+        shape.style.animationDelay = `${delay}s`;
+
+        container.appendChild(shape);
+    }
+}
+
+function createMeteor(container) {
+    const meteor = document.createElement('div');
+    meteor.className = 'meteor';
+
+    const startX = Math.random() * 100;
+    const startY = Math.random() * 20;
+    const duration = Math.random() * 1 + 1;
+
+    meteor.style.setProperty('--start-x', `${startX}vw`);
+    meteor.style.setProperty('--start-y', `${startY}vh`);
+    meteor.style.setProperty('--end-x', `${startX - 30}vw`);
+    meteor.style.setProperty('--end-y', `${startY + 60}vh`);
+    meteor.style.setProperty('--duration', `${duration}s`);
+
+    container.appendChild(meteor);
+
+    // Remove meteor after animation
+    setTimeout(() => {
+        meteor.remove();
+    }, duration * 1000);
+}
 
 // Preloader
 function initPreloader() {
@@ -44,105 +151,6 @@ function initPreloader() {
         }
         loaderPercentage.textContent = Math.floor(progress) + '%';
     }, 50);
-}
-
-// Three.js initialization
-function initThreeJS() {
-    const canvas = document.getElementById('hero-canvas');
-    
-    // Scene
-    scene = new THREE.Scene();
-    
-    // Camera
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 5;
-    
-    // Renderer
-    renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    
-    // Create particle system
-    createParticleSystem();
-    
-    // Mouse movement
-    mouse = new THREE.Vector2();
-    
-    document.addEventListener('mousemove', (event) => {
-        mouseX = (event.clientX - windowHalfX) / 100;
-        mouseY = (event.clientY - windowHalfY) / 100;
-        
-        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    });
-    
-    // Start render loop
-    animate();
-    
-    // Handle window resize
-    window.addEventListener('resize', onWindowResize);
-}
-
-// Create particle system
-function createParticleSystem() {
-    const geometry = new THREE.BufferGeometry();
-    const vertices = [];
-    const colors = [];
-    
-    for (let i = 0; i < 1000; i++) {
-        vertices.push(
-            (Math.random() - 0.5) * 20,
-            (Math.random() - 0.5) * 20,
-            (Math.random() - 0.5) * 20
-        );
-        
-        const color = new THREE.Color();
-        color.setHSL(Math.random() * 0.2 + 0.5, 0.55, 0.5 + Math.random() * 0.25);
-        colors.push(color.r, color.g, color.b);
-    }
-    
-    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-    geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
-    
-    const material = new THREE.PointsMaterial({
-        size: 0.02,
-        vertexColors: true,
-        blending: THREE.AdditiveBlending,
-        transparent: true,
-        opacity: 0.8
-    });
-    
-    particles = new THREE.Points(geometry, material);
-    scene.add(particles);
-}
-
-// Animation loop
-function animate() {
-    requestAnimationFrame(animate);
-    
-    // Rotate particles
-    if (particles) {
-        particles.rotation.x += 0.001;
-        particles.rotation.y += 0.002;
-        
-        // Mouse interaction
-        particles.rotation.x += mouseY * 0.0005;
-        particles.rotation.y += mouseX * 0.0005;
-    }
-    
-    // Render
-    renderer.render(scene, camera);
-}
-
-// Handle window resize
-function onWindowResize() {
-    windowHalfX = window.innerWidth / 2;
-    windowHalfY = window.innerHeight / 2;
-    
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    
-    renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
 // Start main animations after preloader
@@ -598,13 +606,7 @@ function initCursorEffects() {
     
     document.body.appendChild(cursor);
     
-    let mouseX = 0, mouseY = 0;
     let cursorX = 0, cursorY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
     
     function updateCursor() {
         cursorX += (mouseX - cursorX) * 0.1;
